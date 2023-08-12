@@ -19,6 +19,9 @@ Now you dont know p(s'|s,a), so you can't directly model v(s) because you dont k
 ### On-policy Monte Carlo
 This algorithm works by taking averages of the returns of the sequences from every state action pair(q(s,a)). It is on-policy because the policy where it is learned from is the same as the behaviour policy.
 
+### Off-policy Q learning
+This algorithm works by updating each q(s,a) by a single step in the world. The current r + max_a(q(s',a)). This is also a dymanic programming method because it is not using the entire future return, G, but an estimate of it, q(s',a). This is a bit biased because it is updating an estimate using an estimate but has a much lower variance than monte carlo and converges much quicker. The algorithm is off-policy because of the max in the update rule. We don't care about the behaviour policy and update in a greedy way towards the q values.  
+
 To find the results you can run treasure_hunt_with_walls_without dynamics. As result you will get a list with all the explored states and their corresponding best action, value of the action and how often it is tried.
 ## Future
 In the future I hope to implement Off-policy Monte Carlo and Temporal difference methods.
